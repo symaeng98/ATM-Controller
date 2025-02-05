@@ -1,4 +1,4 @@
-package bank.atm.entity;
+package bank.atm.domain.account.entity;
 
 import java.util.UUID;
 
