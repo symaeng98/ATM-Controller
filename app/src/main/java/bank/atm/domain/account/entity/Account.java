@@ -5,15 +5,17 @@ import java.util.UUID;
 /**
  * 계좌 클래스
  * 입금, 출금, 잔액 확인이 가능합니다.
- * id는 계좌 생성 시 랜덤 UUID값으로 자동 생성됩니다.
+ * 계좌 생성 시 잔액은 0원으로 초기화됩니다.
+ * id는 UUID를 String으로 변환한 값입니다.
  */
 public class Account {
     private final String id = UUID.randomUUID().toString();
-    private int balance;
+    private String cardId;
+    private int balance = 0;
+    private String description;
 
     private Account() {
     }
-
 
     public static class Builder {
         private final Account account;
@@ -26,13 +28,35 @@ public class Account {
             return new Builder();
         }
 
+        public Builder cardId(String cardId) {
+            account.cardId = cardId;
+            return this;
+        }
+
+        public Builder description(String description) {
+            account.description = description;
+            return this;
+        }
+
         public Account build() {
             return account;
         }
     }
 
+    public String getId() {
+        return id;
+    }
+
     public int getBalance() {
         return balance;
+    }
+
+    public String getCardId() {
+        return cardId;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public void deposit(int amount) {
@@ -40,7 +64,6 @@ public class Account {
     }
 
     public void withdraw(int amount) {
-
         if (balance < amount) {
             throw new IllegalStateException("잔액이 부족합니다.");
         }
