@@ -11,11 +11,11 @@ public class MemoryCardRepository implements CardRepository{
 
     @Override
     public void save(Card card) {
-        database.createCard(card.getId(), card);
+        database.createCard(card);
     }
 
     @Override
     public Card findById(String id) {
-        return database.getCard(id);
+        return database.getCardById(id);
     }
 }
