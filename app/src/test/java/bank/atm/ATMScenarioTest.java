@@ -14,6 +14,7 @@ import bank.atm.domain.card.entity.Card;
 import bank.atm.domain.card.repository.CardRepository;
 import bank.atm.domain.card.repository.MemoryCardRepository;
 import bank.atm.domain.card.service.CardService;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -22,13 +23,14 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ATMScenarioTest {
+    private Database database;
 
     private AccountController accountController;
     private CardController cardController;
 
     @BeforeEach
     void setUp() {
-        Database database = new Database();
+        database = new Database();
 
         // 카드 의존성 주입
         CardRepository cardRepository = new MemoryCardRepository(database);
@@ -58,6 +60,11 @@ public class ATMScenarioTest {
         String accountDescription3 = "적금 통장";
         AccountCreate accountCreate3 = new AccountCreate(cardId, accountDescription3);
         database.createAccount(accountCreate3.toAccount());
+    }
+
+    @AfterEach
+    public void clear() {
+        database.clear();
     }
 
     /**
