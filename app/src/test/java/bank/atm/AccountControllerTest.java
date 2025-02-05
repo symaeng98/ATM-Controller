@@ -35,7 +35,7 @@ public class AccountControllerTest {
     }
 
     @Test
-    void createAccountSuccess() {
+    void create_Account_Success() {
         AccountCreate accountCreate = new AccountCreate("mycard1", "월급 계좌");
 
         accountController.createAccount(accountCreate);
@@ -48,7 +48,7 @@ public class AccountControllerTest {
     }
 
     @Test
-    void getAccountsByCardId() {
+    void get_Accounts_By_Card_Id() {
         AccountCreate accountCreate1 = new AccountCreate("mycard1", "월급 계좌");
         AccountCreate accountCreate2 = new AccountCreate("mycard1", "월급 계좌2");
         database.createAccount(accountCreate1.toAccount());
@@ -66,7 +66,7 @@ public class AccountControllerTest {
     }
 
     @Test
-    void depositSuccess() {
+    void deposit_Success() {
         AccountCreate accountCreate = new AccountCreate("mycard1", "월급 계좌");
         database.createAccount(accountCreate.toAccount());
         List<Account> accounts = database.getAllAccountsByCardId("mycard1");
@@ -79,7 +79,7 @@ public class AccountControllerTest {
     }
 
     @Test
-    void withdrawSuccess() {
+    void withdraw_Success() {
         AccountCreate accountCreate = new AccountCreate("mycard1", "월급 계좌");
         database.createAccount(accountCreate.toAccount());
         List<Account> accounts = database.getAllAccountsByCardId("mycard1");
@@ -93,7 +93,7 @@ public class AccountControllerTest {
     }
 
     @Test
-    void withdrawFail_NotEnoughBalance() {
+    void withdraw_Fail_NotEnoughBalance() {
         AccountCreate accountCreate = new AccountCreate("mycard1", "월급 계좌");
         database.createAccount(accountCreate.toAccount());
         List<Account> accounts = database.getAllAccountsByCardId("mycard1");
