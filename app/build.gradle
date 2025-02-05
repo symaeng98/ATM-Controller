@@ -40,4 +40,7 @@ application {
 tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
+    testLogging {
+        showStandardStreams = true // System.out.println() 출력 보이게 설정
+    }
 }
