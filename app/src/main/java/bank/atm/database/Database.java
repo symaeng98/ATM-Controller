@@ -12,8 +12,8 @@ import java.util.Map;
  * Account와 Card를 id로 구분하여 저장합니다.
  */
 public class Database {
-    private Map<String, Account> accountDb = new HashMap<>();
-    private Map<String, Card> cardDb = new HashMap<>();
+    private final Map<String, Account> accountDb = new HashMap<>();
+    private final Map<String, Card> cardDb = new HashMap<>();
 
     public void createAccount(Account account) {
         String id = account.getId();
