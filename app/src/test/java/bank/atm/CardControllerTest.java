@@ -29,7 +29,7 @@ public class CardControllerTest {
     }
 
     @Test
-    void createCardSuccess() {
+    void create_Card_Success() {
         CardCreate cardCreate = new CardCreate("mycard1", "내 첫 카드", "1234");
 
         cardController.createCard(cardCreate);
@@ -40,7 +40,7 @@ public class CardControllerTest {
     }
 
     @Test
-    void createCardFail_AlreadyExists() {
+    void create_Card_Fail_Already_Exists() {
         CardCreate cardCreate = new CardCreate("mycard1", "내 첫 카드", "1234");
         database.createCard(cardCreate.toCard());
 
@@ -49,13 +49,13 @@ public class CardControllerTest {
     }
 
     @Test
-    void createCardFail_WrongPINNumber() {
+    void create_Card_Fail_Wrong_PinNumber() {
         assertThrows(IllegalArgumentException.class,
                 () -> new CardCreate("mycard1", "내 첫 카드", "125789"));
     }
 
     @Test
-    void getCardSuccess() {
+    void get_Card_Success() {
         CardCreate cardCreate = new CardCreate("mycard1", "내 첫 카드", "1234");
         database.createCard(cardCreate.toCard());
 
@@ -66,7 +66,7 @@ public class CardControllerTest {
     }
 
     @Test
-    void verifyPinFail() {
+    void verify_PinNumber_Fail() {
         CardCreate cardCreate = new CardCreate("mycard1", "내 첫 카드", "1234");
         database.createCard(cardCreate.toCard());
         CardVerify verify = new CardVerify("mycard1", "4321");
