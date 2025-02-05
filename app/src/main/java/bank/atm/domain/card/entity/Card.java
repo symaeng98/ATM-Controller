@@ -52,4 +52,8 @@ public class Card {
     public String getDescription() {
         return description;
     }
+
+    public boolean verify(String pinNumber) {
+        return this.pinNumber.equals(pinNumber);
+    }
 }
