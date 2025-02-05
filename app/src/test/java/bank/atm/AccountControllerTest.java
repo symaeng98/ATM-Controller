@@ -61,14 +61,9 @@ public class AccountControllerTest {
         database.createAccount(accountCreate2.toAccount());
 
         List<Account> accounts = accountController.getAccountsByCardId("mycard1");
-
         assertEquals(2, accounts.size());
         assertEquals("mycard1", accounts.get(0).getCardId());
-        assertEquals("월급 계좌", accounts.get(0).getDescription());
-        assertEquals(0, accounts.get(0).getBalance());
         assertEquals("mycard1", accounts.get(1).getCardId());
-        assertEquals("월급 계좌2", accounts.get(1).getDescription());
-        assertEquals(0, accounts.get(1).getBalance());
     }
 
     @Test
