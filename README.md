@@ -2,7 +2,7 @@
 ## Git Clone 방법
 아래의 명령어를 실행하여 로컬에 프로젝트를 클론합니다.
 ```
-git clone https://github.com/symaeng98/ATM-Controller.git
+git clone https://github.com/symaeng98/ATM-Controller.git && cd ATM-Controller
 ```  
 
 ## 테스트 방법
