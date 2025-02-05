@@ -54,4 +54,9 @@ public class Database {
         }
         return cardDb.get(id);
     }
+
+    public void clear() {
+        accountDb.clear();
+        cardDb.clear();
+    }
 }

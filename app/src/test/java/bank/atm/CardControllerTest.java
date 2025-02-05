@@ -8,6 +8,7 @@ import bank.atm.domain.card.entity.Card;
 import bank.atm.domain.card.repository.CardRepository;
 import bank.atm.domain.card.repository.MemoryCardRepository;
 import bank.atm.domain.card.service.CardService;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -26,6 +27,11 @@ public class CardControllerTest {
         CardRepository cardRepository = new MemoryCardRepository(database);
         CardService cardService = new CardService(cardRepository);
         cardController = new CardController(cardService);
+    }
+
+    @AfterEach
+    public void clear() {
+        database.clear();
     }
 
     @Test

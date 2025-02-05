@@ -8,6 +8,7 @@ import bank.atm.domain.account.repository.AccountRepository;
 import bank.atm.domain.account.repository.MemoryAccountRepository;
 import bank.atm.domain.account.service.AccountService;
 import bank.atm.domain.card.dto.CardCreate;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -32,6 +33,11 @@ public class AccountControllerTest {
 
         CardCreate cardCreate = new CardCreate("mycard1", "내 첫 카드", "1234");
         database.createCard(cardCreate.toCard());
+    }
+
+    @AfterEach
+    public void clear() {
+        database.clear();
     }
 
     @Test
