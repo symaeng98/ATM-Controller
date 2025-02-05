@@ -1,8 +1,8 @@
 package bank.atm.domain.card.dto;
 
 public class CardVerify {
-    private String id;
-    private String pinNumber;
+    private final String id;
+    private final String pinNumber;
 
     public CardVerify(String id, String pinNumber) {
         this.id = id;

@@ -3,9 +3,9 @@ package bank.atm.domain.card.dto;
 import bank.atm.domain.card.entity.Card;
 
 public class CardCreate {
-    private String id;
-    private String description;
-    private String pinNumber;
+    private final String id;
+    private final String description;
+    private final String pinNumber;
 
     public CardCreate(String id, String description, String pinNumber) {
         this.id = id;
